@@ -1,0 +1,368 @@
+:root {
+    --asterisk-border-color: #909090;
+    --asterisk-bg-color-1: #303030;
+    --asterisk-bg-color-2: #808080;
+
+    --sheet-bg-color: lightgray;
+    --sheet-fold-color: darkgray;
+    --headline-bg-color: #606060;
+}
+
+.si-root {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    transition: all 2s;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.si-root .sheet {
+    position: relative;
+}
+.si-root .line-container {
+    position: absolute;
+    bottom: .05em;
+    left: .05em;
+    width: .6em;
+    height: .65em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.si-root .line {
+    height: .1em;
+}
+.si-root .sheet::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 2em;
+    height: 2em;
+    display: block;
+    background-image:
+            linear-gradient(
+                    225deg,
+                    transparent 0em .1em,
+                    var(--sheet-bg-color) .1em 100%
+            );
+}
+.si-root .sheet {
+    width: .7em;
+    height: .9em;
+    border-radius: .05em;
+    overflow: hidden;
+}
+.si-root .sheet::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: .14em;
+    height: .14em;
+    border-bottom-left-radius: .05em;
+    background-image:
+            linear-gradient(225deg, transparent 50%, var(--sheet-fold-color) 50%);
+    z-index:1;
+}
+.si-root .headline {
+    position: absolute;
+    height: .05em;
+    top: .1em;
+    left: .05em;
+    width: .45em;
+    border-radius: .01em;
+    background-color: var(--headline-bg-color);
+
+    transition:
+            opacity .5s ease-in-out .1s;
+    opacity: 0;
+}
+.si-root .line {
+    position: relative;
+    border-radius: .01em;
+    background-color: #535959;
+    align-self: flex-start;
+}
+.si-root .line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: .01em;
+    height: 100%;
+    animation-name: line-saver;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.si-root .line:nth-child(1) {
+    transition:
+            width .4s ease-in-out .2s,
+            opacity .4s ease-in-out .3s;
+    width: 0;
+    opacity: 0;
+}
+.si-root .line:nth-child(2) {
+    transition:
+            width .3s ease-in-out .4s,
+            opacity .3s ease-in-out .5s;
+    width: 0;
+    opacity: 0;
+}
+.si-root .line:nth-child(3) {
+    transition:
+            width .2s ease-in-out .6s,
+            opacity .2s ease-in-out .7s;
+    width: 0;
+    opacity: 0;
+}
+.si-root .line:nth-child(1)::before {
+    animation-delay: -1.75s;
+    animation-duration: 2.5s;
+}
+.si-root .line:nth-child(2)::before {
+    animation-delay: -0.5s;
+    animation-duration: 5s;
+}
+.si-root .line:nth-child(3)::before {
+    animation-delay: -1.5s;
+    animation-duration: 2s;
+}
+
+.si-root .mark-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.si-root .mark {
+    position: relative;
+    left: 0;
+    top: 0;
+    background-color: #009900;
+    width: .5em;
+    height: .5em;
+    border-radius: .5em;
+    transform: rotate(-47deg);
+
+    transition: opacity .2s ease-in-out .4s;
+    opacity: 0;
+}
+.si-root .mark::before,
+.si-root .mark::after {
+    content:"";
+    display: block;
+}
+.si-root .mark::before {
+    position: absolute;
+    background-color: lightgray;
+    width: .06em;
+    height: .16em;
+    top: .16em;
+    left: .13em;
+
+    transition: transform .2s ease-in-out .2s;
+    transform: scaleY(0)
+}
+.si-root .mark::after {
+    position: absolute;
+    background-color: lightgray;
+    height: .06em;
+    width: .26em;
+    top: .26em;
+    left: .13em;
+
+    transition: transform .2s ease-in-out 0s;
+    transform: scaleX(0)
+}
+
+.si-root .asterisk {
+    position: absolute;
+    bottom: .05em;
+    left: .05em;
+    width: .6em;
+    height: .6em;
+    border: 1px solid transparent;
+    border-radius:.05em;
+    overflow: hidden;
+
+    transition:
+            border-color .5s ease-in-out .6s;
+}
+.si-root .axis {
+    position: absolute;
+    width: .1em;
+    height: .6em;
+    left: .25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.si-root .axis:nth-child(2) {
+    transform: rotate(120deg);
+}
+.si-root .axis:nth-child(3) {
+    transform: rotate(240deg);
+}
+.si-root .axis::before,
+.si-root .axis::after {
+    content: "";
+    display: block;
+    border-radius: .03em;
+    width: .1em;
+    height: .18em;
+    animation-name: asterisk-background;
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.si-root .axis::before {
+    transform: translateY(-2em);
+}
+.si-root .axis::after {
+    transform: translateY(2em);
+}
+.si-root .axis:nth-child(1)::before {
+    transition: transform .2s ease-in-out .0s;
+}
+.si-root .axis:nth-child(1)::after {
+    transition: transform .2s ease-in-out .1s;
+}
+.si-root .axis:nth-child(2)::before {
+    transition: transform .2s ease-in-out .2s;
+}
+.si-root .axis:nth-child(2)::after {
+    transition: transform .2s ease-in-out .3s;
+}
+.si-root .axis:nth-child(3)::before {
+    transition: transform .2s ease-in-out .4s;
+}
+.si-root .axis:nth-child(3)::after {
+    transition: transform .2s ease-in-out .5s;
+}
+
+/*----state changed----*/
+.si-root.state-changed .asterisk {
+    transition:
+            border-color .5s ease-in-out .6s;
+    border-color: var(--asterisk-border-color);
+}
+.si-root.state-changed .axis::before,
+.si-root.state-changed .axis::after {
+    transform: translateY(0);
+}
+.si-root.state-changed .axis:nth-child(1)::before {
+    transition: transform .2s ease-in-out .9s;
+}
+.si-root.state-changed .axis:nth-child(1)::after {
+    transition: transform .2s ease-in-out 1s;
+}
+.si-root.state-changed .axis:nth-child(2)::before {
+    transition: transform .2s ease-in-out 1.1s;
+}
+.si-root.state-changed .axis:nth-child(2)::after {
+    transition: transform .2s ease-in-out 1.2s;
+}
+.si-root.state-changed .axis:nth-child(3)::before {
+    transition: transform .2s ease-in-out 1.3s;
+}
+.si-root.state-changed .axis:nth-child(3)::after {
+    transition: transform .2s ease-in-out 1.4s;
+}
+
+/*----state pending----*/
+.si-root.state-pending .headline {
+    transition:
+            opacity .5s ease-in-out .6s;
+    opacity: 1;
+}
+.si-root.state-pending .line:nth-child(1) {
+    transition:
+            width .4s ease-in-out .8s,
+            opacity .4s ease-in-out .8s;
+    width: 100%;
+    opacity: 1;
+}
+.si-root.state-pending .line:nth-child(2) {
+    transition:
+            width .3s ease-in-out 1s,
+            opacity .3s ease-in-out 1s;
+    width: 100%;
+    opacity: 1;
+}
+.si-root.state-pending .line:nth-child(3) {
+    transition:
+            width .2s ease-in-out 1.2s,
+            opacity .2s ease-in-out 1.2s;
+    width: 100%;
+    opacity: 1;
+}
+
+/*----state done----*/
+.si-root.state-done .mark {
+    transition: opacity .2s ease-in-out .9s;
+    opacity: 1;
+}
+.si-root.state-done .mark::before {
+    transition: transform .2s ease-in-out 1.1s;
+    transform: scaleY(1)
+}
+.si-root.state-done .mark::after {
+    transition: transform .2s ease-in-out 1.3s;
+    transform: scaleX(1)
+}
+
+@keyframes asterisk-background {
+    from {background-color: var(--asterisk-bg-color-1)}
+    to {background-color: var(--asterisk-bg-color-2)}
+}
+
+@keyframes line-saver {
+    0% {
+        background-color: #205020;
+        width: 3%;
+        left: 0;
+    }
+    50% {
+        background-color: #104010;
+        width: 100%;
+        right: 0;
+    }
+    100% {
+        background-color: #205020;
+        width: 3%;
+        right: 0;
+    }
+}
+
+/*Sizes*/
+.si-root.size-xx-small {
+    font-size: 48px !important;
+}
+.si-root.size-x-small {
+    font-size: 64px !important;
+}
+.si-root.size-small {
+    font-size: 88px !important;
+}
+.si-root.size-medium {
+    font-size: 96px !important;
+}
+.si-root.size-large {
+    font-size: 100px !important;
+}
+.si-root.size-x-large {
+    font-size: 150px !important;
+}
+.si-root.size-xx-large {
+    font-size: 200px !important;
+}
