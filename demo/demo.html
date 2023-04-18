@@ -14,52 +14,58 @@
     </script>
 </head>
 <body>
-<div id="demo-screen">
-    <div id="demo-icon-container">
-        <div id="save-icon">
-            <!--
-            <div class="sheet">
-                <div class="asterisk">
-                    <div class="axis"></div>
-                    <div class="axis"></div>
-                    <div class="axis"></div>
+<div id="demo">
+    <div id="demo-title">
+        Animated State-Managed Save Icon [SVI]
+    </div>
+    <div id="demo-screen">
+        <div id="demo-icon-container">
+            <div id="save-icon">
+                <!--
+                <div class="sheet">
+                    <div class="asterisk">
+                        <div class="axis"></div>
+                        <div class="axis"></div>
+                        <div class="axis"></div>
+                    </div>
+                    <div class="headline"></div>
+                    <div class="line-container">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
                 </div>
-                <div class="headline"></div>
-                <div class="line-container">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
+                <div class="mark-flex">
+                    <div class="mark"></div>
                 </div>
+                -->
             </div>
-            <div class="mark-flex">
-                <div class="mark"></div>
-            </div>
-            -->
+        </div>
+        <div id="demo-transition-events" class="scrollbar">
+            <div class="log"></div>
         </div>
     </div>
-    <div id="demo-transition-events" class="scrollbar">
-        <div class="log"></div>
-    </div>
-</div>
-<!-- Info & Controls -->
-<div id="demo-controls">
-    <div class="demo-controls-container">
-        <h4>State</h4>
-        <button data-state="none"></button>
-        <button data-state="changed"></button>
-        <button data-state="pending"></button>
-        <button data-state="done"></button>
-    </div>
+    <!-- Info & Controls -->
+    <div id="demo-controls">
+        <div class="demo-controls-container">
+            <h4>State</h4>
+            <button data-state="none"></button>
+            <button data-state="changed"></button>
+            <button data-state="pending"></button>
+            <button data-state="fail"></button>
+            <button data-state="done"></button>
+        </div>
 
-    <div class="demo-controls-container">
-        <h4>Size</h4>
-        <button data-size="xx-small"></button>
-        <button data-size="x-small"></button>
-        <button data-size="small"></button>
-        <button data-size="medium"></button>
-        <button data-size="large"></button>
-        <button data-size="x-large"></button>
-        <button data-size="xx-large"></button>
+        <div class="demo-controls-container">
+            <h4>Size</h4>
+            <button data-size="xx-small"></button>
+            <button data-size="x-small"></button>
+            <button data-size="small"></button>
+            <button data-size="medium"></button>
+            <button data-size="large"></button>
+            <button data-size="x-large"></button>
+            <button data-size="xx-large"></button>
+        </div>
     </div>
 </div>
 </body>

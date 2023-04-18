@@ -6,8 +6,19 @@ html, body {
 }
 html {
     background:linear-gradient(47deg, rgba(187, 0, 0, 1) 0%, rgba(41, 8, 255, 1) 50%, rgba(230, 0, 255, 1) 100%);
-    background-size: 400% 400%;
+    background-size: 400vw 100vh;
     animation: demo-background-animation 40s ease infinite;
+}
+#demo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#demo-title {
+    font-size: 2em;
+    margin: 1.5em 0;
 }
 #demo-screen {
     display: flex;

@@ -12,7 +12,7 @@
     position: relative;
     width: 1em;
     height: 1em;
-    transition: all 2s;
+    /*   transition: all 2s; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -146,40 +146,22 @@
     position: relative;
     left: 0;
     top: 0;
-    background-color: #009900;
+    background-color: transparent;
     width: .5em;
     height: .5em;
     border-radius: .5em;
-    transform: rotate(-47deg);
+    transform: rotate(-45deg);
 
-    transition: opacity .2s ease-in-out .4s;
+    transition: all .2s ease-in-out .4s;
     opacity: 0;
 }
 .si-root .mark::before,
 .si-root .mark::after {
     content:"";
     display: block;
-}
-.si-root .mark::before {
     position: absolute;
     background-color: lightgray;
-    width: .06em;
-    height: .16em;
-    top: .16em;
-    left: .13em;
-
-    transition: transform .2s ease-in-out .2s;
-    transform: scaleY(0)
-}
-.si-root .mark::after {
-    position: absolute;
-    background-color: lightgray;
-    height: .06em;
-    width: .26em;
-    top: .26em;
-    left: .13em;
-
-    transition: transform .2s ease-in-out 0s;
+    transition: all .2s ease-in-out 0s;
     transform: scaleX(0)
 }
 
@@ -307,19 +289,57 @@
     opacity: 1;
 }
 
+/*----state fail----*/
+.si-root.state-fail .mark {
+    transition:
+            opacity .2s ease-in-out .9s,
+            background-color .2s ease-in-out .9s;
+    background-color: #990000;
+    opacity: 1;
+}
+.si-root.state-fail .mark::before {
+    width: .06em;
+    height: .26em;
+    top: .125em;
+    left: .222em;
+    transition: all .2s ease-in-out 1.1s;
+    transform: scaleY(1)
+}
+.si-root.state-fail .mark::after {
+    width: .06em;
+    height: .26em;
+    top: .125em;
+    left: .222em;
+    transition: all .2s ease-in-out 1.3s;
+    transform: scaleX(1) rotate(90deg)
+}
+
 /*----state done----*/
 .si-root.state-done .mark {
-    transition: opacity .2s ease-in-out .9s;
+    transition:
+            opacity .2s ease-in-out .9s,
+            background-color .2s ease-in-out .9s;
+    background-color: #009900;
     opacity: 1;
 }
 .si-root.state-done .mark::before {
-    transition: transform .2s ease-in-out 1.1s;
+    width: .06em;
+    height: .16em;
+    top: .16em;
+    left: .13em;
+    transition: all .2s ease-in-out 1.1s;
     transform: scaleY(1)
 }
 .si-root.state-done .mark::after {
-    transition: transform .2s ease-in-out 1.3s;
+    height: .06em;
+    width: .26em;
+    top: .26em;
+    left: .13em;
+    transition: all .2s ease-in-out 1.3s;
     transform: scaleX(1)
 }
+
+/*----animations----*/
 
 @keyframes asterisk-background {
     from {background-color: var(--asterisk-bg-color-1)}
