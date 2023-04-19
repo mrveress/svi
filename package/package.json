@@ -1,6 +1,6 @@
 {
   "name": "svi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Animated State-Managed Save Icon (CSS/JS)",
   "module": "dist/svi.esm.min.js",
   "browser": "dist/svi.umd.min.js",
@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/mrveress/svi#readme",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "rollup -c",
