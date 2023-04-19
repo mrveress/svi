@@ -1,3 +1,5 @@
+import '../scss/svi.scss';
+
 /**
  * Animated State-Managed Save Icon or just SaVe Icon
  * HTML | Vanilla JS | CSS3

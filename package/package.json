@@ -1,0 +1,41 @@
+{
+  "name": "svi",
+  "version": "0.0.1",
+  "description": "Animated State-Managed Save Icon (CSS/JS)",
+  "module": "dist/svi.esm.min.js",
+  "browser": "dist/svi.umd.min.js",
+  "main": "dist/svi.esm.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrveress/svi.git"
+  },
+  "keywords": [
+    "animation",
+    "transition",
+    "css3",
+    "icon",
+    "state",
+    "save",
+    "load",
+    "spinner"
+  ],
+  "author": "Veress",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrveress/svi/issues"
+  },
+  "homepage": "https://github.com/mrveress/svi#readme",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.62.0"
+  }
+}
