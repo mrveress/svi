@@ -1,18 +1,27 @@
-:root {
-    --asterisk-border-color: #909090;
-    --asterisk-bg-color-1: #303030;
-    --asterisk-bg-color-2: #808080;
+.si-root {
+    --svi-sheet-bg-color: lightgray;
+    --svi-sheet-fold-color: darkgray;
+    
+    --svi-changed-border-color: #909090;
+    --svi-changed-bg-color-1: #303030;
+    --svi-changed-bg-color-2: #808080;
+    
+    --svi-pending-headline-bg-color: #606060;
+    --svi-pending-line-bg-color: #535959;
+    --svi-pending-line-color-1: #205020;
+    --svi-pending-line-color-2: #104010;
+    
+    --svi-mark-color: lightgray;
+    
+    --svi-mark-fail-bg-color: #990000;
 
-    --sheet-bg-color: lightgray;
-    --sheet-fold-color: darkgray;
-    --headline-bg-color: #606060;
+    --svi-mark-done-bg-color: #009900;
 }
 
 .si-root {
     position: relative;
     width: 1em;
     height: 1em;
-    /*   transition: all 2s; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -47,7 +56,7 @@
             linear-gradient(
                     225deg,
                     transparent 0em .1em,
-                    var(--sheet-bg-color) .1em 100%
+                    var(--svi-sheet-bg-color) .1em 100%
             );
 }
 .si-root .sheet {
@@ -65,7 +74,7 @@
     height: .14em;
     border-bottom-left-radius: .05em;
     background-image:
-            linear-gradient(225deg, transparent 50%, var(--sheet-fold-color) 50%);
+            linear-gradient(225deg, transparent 50%, var(--svi-sheet-fold-color) 50%);
     z-index:1;
 }
 .si-root .headline {
@@ -75,7 +84,7 @@
     left: .05em;
     width: .45em;
     border-radius: .01em;
-    background-color: var(--headline-bg-color);
+    background-color: var(--svi-pending-headline-bg-color);
 
     transition:
             opacity .5s ease-in-out .1s;
@@ -84,7 +93,7 @@
 .si-root .line {
     position: relative;
     border-radius: .01em;
-    background-color: #535959;
+    background-color: var(--svi-pending-line-bg-color);
     align-self: flex-start;
 }
 .si-root .line::before {
@@ -160,7 +169,7 @@
     content:"";
     display: block;
     position: absolute;
-    background-color: lightgray;
+    background-color: var(--svi-mark-color);
     transition: all .2s ease-in-out 0s;
     transform: scaleX(0)
 }
@@ -236,7 +245,7 @@
 .si-root.state-changed .asterisk {
     transition:
             border-color .5s ease-in-out .6s;
-    border-color: var(--asterisk-border-color);
+    border-color: var(--svi-changed-border-color);
 }
 .si-root.state-changed .axis::before,
 .si-root.state-changed .axis::after {
@@ -294,7 +303,7 @@
     transition:
             opacity .2s ease-in-out .9s,
             background-color .2s ease-in-out .9s;
-    background-color: #990000;
+    background-color: var(--svi-mark-fail-bg-color);
     opacity: 1;
 }
 .si-root.state-fail .mark::before {
@@ -319,7 +328,7 @@
     transition:
             opacity .2s ease-in-out .9s,
             background-color .2s ease-in-out .9s;
-    background-color: #009900;
+    background-color: var(--svi-mark-done-bg-color);
     opacity: 1;
 }
 .si-root.state-done .mark::before {
@@ -342,23 +351,23 @@
 /*----animations----*/
 
 @keyframes asterisk-background {
-    from {background-color: var(--asterisk-bg-color-1)}
-    to {background-color: var(--asterisk-bg-color-2)}
+    from {background-color: var(--svi-changed-bg-color-1)}
+    to {background-color: var(--svi-changed-bg-color-2)}
 }
 
 @keyframes line-saver {
     0% {
-        background-color: #205020;
+        background-color: var(--svi-pending-line-color-1);
         width: 3%;
         left: 0;
     }
     50% {
-        background-color: #104010;
+        background-color: var(--svi-pending-line-color-2);
         width: 100%;
         right: 0;
     }
     100% {
-        background-color: #205020;
+        background-color: var(--svi-pending-line-color-1);
         width: 3%;
         right: 0;
     }
