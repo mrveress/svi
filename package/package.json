@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/mrveress/svi/issues"
   },
-  "homepage": "https://github.com/mrveress/svi#readme",
+  "homepage": "https://github.com/mrveress/svi/tree/master/package#readme",
   "files": [
     "dist",
     "README.md"
