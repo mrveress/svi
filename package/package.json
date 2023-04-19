@@ -1,6 +1,6 @@
 {
   "name": "svi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Animated State-Managed Save Icon (CSS/JS)",
   "module": "dist/svi.esm.min.js",
   "browser": "dist/svi.umd.min.js",
